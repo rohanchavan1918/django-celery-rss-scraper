@@ -9,6 +9,19 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
+'''
+Working of the Bot :-
+1) In the Initial Scrap all the data and add it to DB
+2) From Second Iteration onwards --
+    - First get all titles saved in DB and save it in list
+    - Scrap all the URLS, if the title is already in list, means it is in DB,
+      No Need to Hit the DB.
+    - If Data is Not in list,add it to DB
+    (This will reduce the DB hits in every iteration)
+    Redis could also be used,Instead of Checking from a local list, which would make it even more faster.
+'''
+
 # GetDesc returns Description of indiatoday
 def GetDesc(link):
     try:
