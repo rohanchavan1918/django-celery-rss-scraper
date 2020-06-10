@@ -1,8 +1,8 @@
 # Catalyst-Rss-Worker
 
-Catalyst Rss Worker is an automated scraper that asynchronously scrapes a given set of RSS Feeds and saves the title, description, date, and URL to the Postgres database. This tool efficiently handles duplicate data and reduces redundancy, and is optimized to reduce the hits on the database. It uses celery to scrape the feeds every 15 minutes and the Flower dashboard could be used to monitor the tasks performed.
+Catalyst Rss Worker is an automated scraper that asynchronously scrapes a given set of RSS Feeds and saves the title, description, date, and URL to the Postgres database. This web app efficiently handles duplicate data and reduces redundancy, and is optimized to reduce the hits on the database. It uses [Celery](http://docs.celeryproject.org) worker using [Redis](https://redis.io/) as the broker and with [Flower](https://flower.readthedocs.io) as the dashboard. The goal of the worker will be to check the following RSS sources for new content periodically (every 15 mins) 
 
-Live:- http://128.199.78.218/ 
+Live:- [http://128.199.78.218/](http://128.199.78.218/)
 
 ## How it works?
 1. In the initial dump, the bot scrapes all the title, description, date,URL. it uses [feedparser](https://pypi.org/project/feedparser/) which is a Universal feed parser, handles RSS 0.9x, RSS 1.0, RSS 2.0, CDF, Atom 0.3, and Atom 1.0 feeds.
@@ -31,7 +31,12 @@ User can perform queries based on the title, description, Url, Data.
 ### Search by key words
 ![Image](https://drive.google.com/uc?export=view&id=1VhUolc6xx39glDL5I8gtN6rlfwEBk-Fj)
 
-### Flower Dashboard
+### Flower :-
+Flower is a web based tool for monitoring and administrating Celery clusters.
+User can login to Flower dashboard at 
+[http://128.199.78.218:5556/](http://128.199.78.218:5556/) with the credentials.
+(Basic authentication has been used, but we other authentication like Oauth can also be configured.)
+
 ![Image](https://drive.google.com/uc?export=view&id=1r0mCWN74w-UhMo4GygUcLqJNcL_gIIGD)
 
 ## Adding/Removing Urls
