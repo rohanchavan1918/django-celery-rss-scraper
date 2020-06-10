@@ -92,7 +92,7 @@ DATABASES = {
         # 'USER': 'postgres',
         'USER': 'postgres_rss',
         'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'HOST': '128.199.78.218',
         'PORT': '5432',
     }
 }
